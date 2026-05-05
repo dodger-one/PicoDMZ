@@ -14,7 +14,21 @@ specific language governing permissions and limitations under the License.
 #include <stdio.h>
 #include <time.h>
 //
+#if __has_include("hardware/rtc.h")
+#define FATFS_SPI_HAVE_HW_RTC 1
 #include "hardware/rtc.h"
+#else
+#define FATFS_SPI_HAVE_HW_RTC 0
+typedef struct {
+    int16_t year;
+    int8_t month;
+    int8_t day;
+    int8_t dotw;
+    int8_t hour;
+    int8_t min;
+    int8_t sec;
+} datetime_t;
+#endif
 #include "pico/stdio.h"
 #include "pico/stdlib.h"
 #include "pico/util/datetime.h"
@@ -35,27 +49,42 @@ typedef struct rtc_save {
 static rtc_save_t rtc_save __attribute__((section(".uninitialized_data")));
 
 static void update_epochtime() {
+#if FATFS_SPI_HAVE_HW_RTC
     bool rc = rtc_get_datetime(&rtc_save.datetime);
     if (rc) {
         rtc_save.signature = 0xBABEBABE;
         struct tm timeinfo = {
-            .tm_sec = rtc_save.datetime
-                          .sec, /* Seconds.	[0-60] (1 leap second) */
-            .tm_min = rtc_save.datetime.min,          /* Minutes.	[0-59] */
-            .tm_hour = rtc_save.datetime.hour,        /* Hours.	[0-23] */
-            .tm_mday = rtc_save.datetime.day,         /* Day.		[1-31] */
-            .tm_mon = rtc_save.datetime.month - 1,    /* Month.	[0-11] */
-            .tm_year = rtc_save.datetime.year - 1900, /* Year	- 1900.  */
-            .tm_wday = 0,                             /* Day of week.	[0-6] */
-            .tm_yday = 0,                             /* Days in year.[0-365]	*/
-            .tm_isdst = -1                            /* DST.		[-1/0/1]*/
+            .tm_sec = rtc_save.datetime.sec,
+            .tm_min = rtc_save.datetime.min,
+            .tm_hour = rtc_save.datetime.hour,
+            .tm_mday = rtc_save.datetime.day,
+            .tm_mon = rtc_save.datetime.month - 1,
+            .tm_year = rtc_save.datetime.year - 1900,
+            .tm_wday = 0,
+            .tm_yday = 0,
+            .tm_isdst = -1
         };
         rtc_save.checksum = calculate_checksum((uint32_t *)&rtc_save,
                                                offsetof(rtc_save_t, checksum));
         epochtime = mktime(&timeinfo);
         rtc_save.datetime.dotw = timeinfo.tm_wday;
-        // configASSERT(-1 != epochtime);
     }
+#else
+    if (epochtime == 0) {
+        struct tm timeinfo = {
+            .tm_sec = 0,
+            .tm_min = 0,
+            .tm_hour = 0,
+            .tm_mday = 1,
+            .tm_mon = 0,
+            .tm_year = 124,
+            .tm_wday = 1,
+            .tm_yday = 0,
+            .tm_isdst = -1
+        };
+        epochtime = mktime(&timeinfo);
+    }
+#endif
 }
 
 time_t time(time_t *pxTime) {
@@ -67,6 +96,7 @@ time_t time(time_t *pxTime) {
 }
 
 void time_init() {
+#if FATFS_SPI_HAVE_HW_RTC
     rtc_init();
     datetime_t t = {0, 0, 0, 0, 0, 0, 0};
     rtc_get_datetime(&t);
@@ -75,17 +105,28 @@ void time_init() {
             (uint32_t *)&rtc_save, offsetof(rtc_save_t, checksum));
         if (rtc_save.signature == 0xBABEBABE &&
             rtc_save.checksum == xor_checksum) {
-            // Set rtc
             rtc_set_datetime(&rtc_save.datetime);
         }
     }
+#else
+    update_epochtime();
+#endif
 }
 
 // Called by FatFs:
 DWORD get_fattime(void) {
     datetime_t t = {0, 0, 0, 0, 0, 0, 0};
+#if FATFS_SPI_HAVE_HW_RTC
     bool rc = rtc_get_datetime(&t);
     if (!rc) return 0;
+#else
+    t.year = 2024;
+    t.month = 1;
+    t.day = 1;
+    t.hour = 0;
+    t.min = 0;
+    t.sec = 0;
+#endif
 
     DWORD fattime = 0;
     // bit31:25
