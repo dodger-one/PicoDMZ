@@ -1,10 +1,11 @@
 ---
 # docs/_config.yml
-theme: minima
+remote_theme: pages-themes/hacker@v0.2.0
+plugins:
+  - jekyll-remote-theme
 
 title: PicoDMZ Devlog
 description: Not just another Game Boy Emulator
-
 
 exclude:
   - original_readme.md
