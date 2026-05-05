@@ -1,8 +1,18 @@
 # PicoDMZ
 
-PicoDMZ is a Game Boy DMG rebuild project around a Raspberry Pi Pico class board, derived from the Pico-GB / RP2040-GB fork lineage and ultimately based on Peanut-GB.
+This project is a fork of the [RP2040-GB for Pico-GB by YouMakeTech](https://github.com/YouMakeTech/Pico-GB), ultimately based on the Peanut-GB emulator.
 
-The goal is not just "run Game Boy ROMs on a microcontroller". The project is aimed at recreating the DMG feel with custom hardware integration, original-style controls, a small SPI display, audio output, and an NFC-driven cartridge-loading workflow.
+PicoDMZ aims to recreate the original Nintendo Game Boy (DMG) experience as faithfully as possible, using modern hardware while preserving the original look and feel.
+
+The goal is not just emulation, but reconstruction:
+
+- Original DMG shell
+- Original DMG-LCD-06 board (buttons and input)
+- Real AA batteries for power
+
+Despite running on RP2040 / RP2350 microcontrollers, the device behaves and feels like an authentic Game Boy.
+
+As a twist, the project also introduces an NFC-based system to "load" games: original cartridges can be scanned, and the emulator loads the corresponding ROM from microSD — blending physical interaction with modern storage.
 
 ## What This Fork Focuses On
 
@@ -21,7 +31,7 @@ The emulator is running on target hardware and is close to real-time performance
 
 If you want to explore the project, start here:
 
-- [Project blog and devlog](docs/index.md)
+- [Project blog and devlog](https://dodger-one.github.io/PicoDMZ/)
 - [Technical documentation index](docs/tech/index.md)
 - [Build guide](docs/tech/build.md)
 - [Hardware notes](docs/tech/hardware.md)
@@ -36,8 +46,8 @@ The current build/documentation assumes combinations of:
 - SPI TFT display such as ST7789
 - microSD storage for ROMs
 - MAX98357A for audio
+- Original DMG-LCD-06 button board reuse
 - optional RC522 NFC reader
-- optional original DMG-LCD-06 button board reuse
 
 See the [hardware notes](docs/tech/hardware.md) for pin mapping and wiring details.
 
