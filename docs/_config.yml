@@ -11,3 +11,4 @@ description: Not just another Game Boy Emulator
 exclude:
   - original_readme.md
   - README.nfc.md
+  - old/rp2040_pinout.md
