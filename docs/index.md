@@ -1,3 +1,1 @@
-# PicoDMZ
-
 Hello world 😎
