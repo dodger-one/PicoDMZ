@@ -1,3 +1,14 @@
+---
+layout: post
+title: "Episode 01 - The POC"
+author: dodger-one
+tags:
+  - rp2040
+  - dmg
+  - hardware
+  - poc
+---
+
 ## It Started As a POC
 
 Everything started as a simple proof of concept.
@@ -45,6 +56,3 @@ At that point, the goal stopped being a simple POC and became:
 > "Let's build a Game Boy."
 
 I realized I could probably fit everything required inside an original Game Boy shell while preserving the original button board and controls, keeping the look and feel as close as possible to the real hardware.
-:xa
-
-
