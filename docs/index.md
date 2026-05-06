@@ -12,9 +12,14 @@ This site is split into two parts:
 
 ## DEMO
 
-<p align="center">
-  <video src="{{ site.baseurl }}/media/demo.mp4" width="400" autoplay loop muted playsinline></video>
-</p>
+<iframe
+  title="PicoDMZ v1.1.1 Demo"
+  width="560"
+  height="560"
+  src="https://gnulinux.tube/videos/embed/pkWBJfUDeuTtHrFSf7csNG"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
 
 ## Technical Documentation
 
