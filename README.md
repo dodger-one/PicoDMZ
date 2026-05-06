@@ -37,6 +37,15 @@ The current focus is on:
 
 In short: it works — now it's being pushed to its limits.
 
+### DEMO
+
+<p align="center">
+  <video width="400" autoplay loop muted playsinline>
+    <source src="docs/media/demo.mp4" type="video/mp4">
+    <img src="docs/media/demo.gif" width="400" alt="Demo">
+  </video>
+</p>
+
 ## Quick Start
 
 If you want to explore the project, start here:
@@ -52,8 +61,8 @@ If you want to explore the project, start here:
 
 The current build/documentation assumes combinations of:
 
-- Raspberry pico 2/RP2350 or pico 1/RP2040
-- 2.8inch SPI TFT display such as ST7789
+- Raspberry Pi Pico (RP2040) or Pico 2 (RP2350)
+- 2.8" SPI TFT display (e.g. ST7789)
 - microSD storage for ROMs
 - MAX98357A for audio
 - Original DMG-LCD-06 button board reuse
