@@ -26,6 +26,7 @@ This site is split into two parts:
 - [Documentation index](tech/index.md)
 - [Hardware notes](tech/hardware.md)
 - [Build guide](tech/build.md)
+- [DMG-LCD-06 Tech Note](tech/dmg-lcd-06.md)
 - [ST7789 display notes](tech/display-st7789.md)
 - [NFC workflow](tech/nfc.md)
 

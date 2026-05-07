@@ -56,3 +56,7 @@ At that point, the goal stopped being a simple POC and became:
 > "Let's build a Game Boy."
 
 I realized I could probably fit everything required inside an original Game Boy shell while preserving the original button board and controls, keeping the look and feel as close as possible to the real hardware.
+
+## Related Technical Documentation
+
+- [DMG-LCD-06 Tech Note](tech/dmg-lcd-06.md)
