@@ -21,6 +21,15 @@ After discovering several Game Boy emulator projects for ESP32 and RP2040/RP2350
   <img src="{{ site.baseurl }}/media/episode_01/IMG20260218114039.webp" width="400" alt="1.8 TFT">
 </div>
 
+<iframe
+  title="PicoDMZ v1.1.1 Demo"
+  width="560"
+  height="560"
+  src="https://gnulinux.tube/videos/embed/vKwMHL9pivydjr7kf215TA"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
+
 Then I realized I had an original DMG-LCD-06 board available from a previous Game Boy restoration project using an IPS display replacement.
 
 <div align="center">
