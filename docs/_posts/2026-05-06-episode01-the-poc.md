@@ -68,4 +68,4 @@ I realized I could probably fit everything required inside an original Game Boy 
 
 ## Related Technical Documentation
 
-- [DMG-LCD-06 Tech Note](tech/dmg-lcd-06.md)
+- [DMG-LCD-06 Tech Note]({{ site.baseurl }}/tech/dmg-lcd-06.md)
