@@ -43,7 +43,7 @@ In short: it works — now it's being pushed to its limits.
   <img src="docs/media/demo.gif" width="400" alt="Demo">
 </div>
 
-See the v1.1.1 demo on the [devlog](https://dodger-one.github.io/PicoDMZ/)
+See the v1.1.1 demo on the [devlog](https://dodger-one.github.io/PicoDMZ/) and more videos on [peertube](https://gnulinux.tube/c/picodmz/videos).
 
 ## Quick Start
 
