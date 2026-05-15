@@ -80,4 +80,5 @@ To the palette that became the default for the rest of the project development:
 
 ## Related Technical Documentation
 
-- [Display Smoke Test Tech Note](tech/display-st7789.md)
+- [Display Smoke Test Tech Note]({{ site.baseurl }}/tech/display-st7789.html)
+- [Display Smoke Test Tech Note (github)](https://github.com/dodger-one/PicoDMZ/blob/master/docs/tech/display-st7789.md)
