@@ -6,3 +6,4 @@ docs/vendor
 .bundle/
 vendor/
 _site
+Gemfile*
