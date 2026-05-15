@@ -78,4 +78,9 @@ Version 2 of this board is radically different and — hopefully — far more ef
 
 ## Related Documentation
 
-- [Baseboard Schematics](tech/baseboard.pdf)
+- [Baseboard Schematics (PDF)](tech/board_schemas.pdf)
+- Baseboard Schematics SVG:
+  - [page 1](tech/board_schemas_svg/board_schema_page_1.svg)
+  - [page 2](tech/board_schemas_svg/board_schema_page_2.svg)
+  - [page 3](tech/board_schemas_svg/board_schema_page_3.svg)
+  - [page 4](tech/board_schemas_svg/board_schema_page_4.svg)
